@@ -1,0 +1,98 @@
+body {
+    background-color: #e0f7fa;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.logout-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+}
+
+.logout-button {
+    background-color: #0288d1;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.logout-button:hover {
+    background-color: #0277bd;
+}
+
+h1 {
+    text-align: center;
+    color: #0288d1;
+    margin-top: 50px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 20px;
+    text-align: left;
+}
+
+th {
+    background-color: #0288d1;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f1f8e9;
+}
+
+button {
+    background-color: #24609e;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0277bd;
+}
+
+.view-button, .edit-button, .delete-button, .back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0288d1;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.view-button:hover, .edit-button:hover, .delete-button:hover, .back-button:hover {
+    background-color: #0277bd;
+}
+
+
+.add-order-button {
+    background-color: #0288d1;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.add-order-button:hover {
+    background-color: #0277bd;
+}

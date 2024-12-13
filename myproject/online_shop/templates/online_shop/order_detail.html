@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Detail - {{ order.order_id }}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Order Detail - {{ order.order_id }}</h1>
+    <table>
+        <tr>
+            <th>User</th>
+            <td>{{ order.user.username }}</td>
+        </tr>
+        <tr>
+            <th>Products</th>
+            <td>
+                {% for product in order.order_products.all %}
+                    {{ product.product.name }} - ${{ product.product.price }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ order.get_status_display }}</td>
+        </tr>
+        <tr>
+            <th>Payment Status</th>
+            <td>{{ order.get_payment_display }}</td>
+        </tr>
+        <tr>
+            <th>Order Price (Delivery)</th>
+            <td>${{ order.price }}</td>
+        </tr>
+        <tr>
+            <th>Product Price</th>
+            <td>${{ product_price }}</td>
+        </tr>
+        <tr>
+            <th>Total Price</th>
+            <td>${{ total_price }}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>{{ order.address }}</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order List</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <div class="logout-container">
+        {% if user.is_authenticated %}
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="logout-button">Logout</button>
+            </form>
+        {% endif %}
+    </div>
+
+    <h1>Order List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Products</th>
+                <th>Total Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.user.username }}</td>
+                    <td>
+                        {% for product in order.order_products.all %}
+                            {{ product.product.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>${{ order.total_price }}</td>
+                    <td>
+                        <a href="{% url 'order_detail' order_id=order.order_id %}" class="view-button">View</a>
+                        <a href="{% url 'order_edit' order_id=order.order_id %}" class="edit-button">Edit</a>
+                        <a href="{% url 'order_confirm_delete' order_id=order.order_id %}" class="delete-button">Delete</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No orders found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+<div class="add-order-container">
+    <a href="{% url 'order_add' %}" class="add-order-button">Add New Order</a>
+</div>
+
+</body>
+</html>
